@@ -1,0 +1,643 @@
+{
+  "id": "c6b64dca-d1fd-4407-9c9d-1f839bcf0ab3",
+  "revision": 0,
+  "last_node_id": 69,
+  "last_link_id": 125,
+  "nodes": [
+    {
+      "id": 59,
+      "type": "SONICTLoader",
+      "pos": [
+        25809.66796875,
+        -1468.1669921875
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 108
+        }
+      ],
+      "outputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL_SONIC",
+          "slot_index": 0,
+          "links": [
+            109
+          ]
+        },
+        {
+          "name": "weight_dtype",
+          "type": "DTYPE",
+          "links": [
+            124
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "ComfyUI_Sonic",
+        "ver": "8a8400d4170062beed4385fb6334a9d5baccb22c",
+        "Node name for S&R": "SONICTLoader"
+      },
+      "widgets_values": [
+        "unet.pth",
+        1,
+        true,
+        "fp16"
+      ]
+    },
+    {
+      "id": 54,
+      "type": "ImageOnlyCheckpointLoader",
+      "pos": [
+        25303.1015625,
+        -1472.69873046875
+      ],
+      "size": [
+        369.6000061035156,
+        98
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            108
+          ]
+        },
+        {
+          "label": "CLIP_VISION",
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "slot_index": 1,
+          "links": [
+            117
+          ]
+        },
+        {
+          "label": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            118
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "ImageOnlyCheckpointLoader"
+      },
+      "widgets_values": [
+        "svd_xt_1_1.safetensors"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 62,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        26540,
+        -1420
+      ],
+      "size": [
+        500.48748779296875,
+        828.4874877929688
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 113
+        },
+        {
+          "label": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 114
+        },
+        {
+          "label": "meta_batch",
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "label": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "label": "frame_rate",
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": 115
+        }
+      ],
+      "outputs": [
+        {
+          "label": "Filenames",
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "a7ce59e381934733bfae03b1be029756d6ce936d",
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 8,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00065-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 25,
+            "workflow": "AnimateDiff_00065.png",
+            "fullpath": "D:\\pixaroma\\ComfyUI\\output\\AnimateDiff_00065-audio.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 69,
+      "type": "LoadImage",
+      "pos": [
+        24977.453125,
+        -1108.9217529296875
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            125
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "הדמות01.png",
+        "image"
+      ]
+    },
+    {
+      "id": 67,
+      "type": "ImageResize+",
+      "pos": [
+        25287.9765625,
+        -1106.2333984375
+      ],
+      "size": [
+        270,
+        218
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 125
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            122
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui_essentials",
+        "ver": "1.1.0",
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest",
+        "stretch",
+        "always",
+        0
+      ]
+    },
+    {
+      "id": 52,
+      "type": "SONICSampler",
+      "pos": [
+        26180,
+        -1430
+      ],
+      "size": [
+        315,
+        174
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL_SONIC",
+          "link": 109
+        },
+        {
+          "label": "data_dict",
+          "name": "data_dict",
+          "type": "SONIC_PREDATA",
+          "link": 116
+        }
+      ],
+      "outputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            113
+          ]
+        },
+        {
+          "label": "fps",
+          "name": "fps",
+          "type": "FLOAT",
+          "slot_index": 1,
+          "links": [
+            115
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "ComfyUI_Sonic",
+        "ver": "8a8400d4170062beed4385fb6334a9d5baccb22c",
+        "Node name for S&R": "SONICSampler"
+      },
+      "widgets_values": [
+        0,
+        "fixed",
+        25,
+        1,
+        25
+      ]
+    },
+    {
+      "id": 61,
+      "type": "VHS_LoadAudioUpload",
+      "pos": [
+        25313.9296875,
+        -1304.9385986328125
+      ],
+      "size": [
+        340,
+        130
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            114,
+            119
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "a7ce59e381934733bfae03b1be029756d6ce936d",
+        "Node name for S&R": "VHS_LoadAudioUpload"
+      },
+      "widgets_values": {
+        "audio": "הקול01.mp3",
+        "start_time": 0,
+        "duration": 3.0000000000000004,
+        "choose audio to upload": "image"
+      }
+    },
+    {
+      "id": 65,
+      "type": "SONIC_PreData",
+      "pos": [
+        25812.115234375,
+        -1230.6143798828125
+      ],
+      "size": [
+        315,
+        186
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip_vision",
+          "name": "clip_vision",
+          "type": "CLIP_VISION",
+          "link": 117
+        },
+        {
+          "label": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 118
+        },
+        {
+          "label": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 119
+        },
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 122
+        },
+        {
+          "name": "weight_dtype",
+          "type": "DTYPE",
+          "link": 124
+        }
+      ],
+      "outputs": [
+        {
+          "label": "data_dict",
+          "name": "data_dict",
+          "type": "SONIC_PREDATA",
+          "slot_index": 0,
+          "links": [
+            116
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "ComfyUI_Sonic",
+        "ver": "8a8400d4170062beed4385fb6334a9d5baccb22c",
+        "Node name for S&R": "SONIC_PreData"
+      },
+      "widgets_values": [
+        512,
+        3,
+        0.5
+      ]
+    }
+  ],
+  "links": [
+    [
+      108,
+      54,
+      0,
+      59,
+      0,
+      "MODEL"
+    ],
+    [
+      109,
+      59,
+      0,
+      52,
+      0,
+      "MODEL_SONIC"
+    ],
+    [
+      113,
+      52,
+      0,
+      62,
+      0,
+      "IMAGE"
+    ],
+    [
+      114,
+      61,
+      0,
+      62,
+      1,
+      "AUDIO"
+    ],
+    [
+      115,
+      52,
+      1,
+      62,
+      4,
+      "FLOAT"
+    ],
+    [
+      116,
+      65,
+      0,
+      52,
+      1,
+      "SONIC_PREDATA"
+    ],
+    [
+      117,
+      54,
+      1,
+      65,
+      0,
+      "CLIP_VISION"
+    ],
+    [
+      118,
+      54,
+      2,
+      65,
+      1,
+      "VAE"
+    ],
+    [
+      119,
+      61,
+      0,
+      65,
+      2,
+      "AUDIO"
+    ],
+    [
+      122,
+      67,
+      0,
+      65,
+      3,
+      "IMAGE"
+    ],
+    [
+      124,
+      59,
+      1,
+      65,
+      4,
+      "DTYPE"
+    ],
+    [
+      125,
+      69,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9646149645000008,
+      "offset": [
+        -24465.188058420554,
+        1595.546912746965
+      ]
+    },
+    "frontendVersion": "1.21.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "node_versions": {
+      "ComfyUI-VideoHelperSuite": "0376e577442c236fbba6ef410a4e5ec64aed5017",
+      "ComfyUI_Sonic": "8c797d1f0d59a748a2988b19e6f7ae4c74460c05\n",
+      "comfy-core": "0.3.14"
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המדריך ליצירת סרטונים ב-ComfyUI</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 25px auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #777;
+            margin-top: -15px;
+            margin-bottom: 25px;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        details {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        details[open] {
+            background-color: #eaf6ff;
+            border-color: #cce7ff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        summary {
+            font-weight: bold;
+            color: #3498db;
+            cursor: pointer;
+            padding: 5px 0;
+            outline: none;
+            display: block; /* Ensures the whole area is clickable */
+        }
+        summary::before {
+            content: '◄ '; /* Unicode triangle pointing left */
+            float: right;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        details[open] summary::before {
+            transform: rotate(-90deg); /* Rotate to point down when open */
+        }
+        details p, details ul, details img {
+            padding-top: 10px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            list-style-type: disc;
+            padding-right: 25px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background-color: #fffacd; /* Light yellow */
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>המדריך המלא ליצירת סרטונים ב-ComfyUI</h1>
+        <p>שלום! במדריך זה אציג לכם צעד אחר צעד כיצד יצרתי את הסרטונים שלי באמצעות ComfyUI, מהדמות ועד שילוב הקול והתנועה.</p>
+
+        <hr>
+
+        <div class="section">
+            <h2>הסרטון המוגמר</h2>
+            <p>כאן תוכלו לצפות בסרטון הסופי שיצרתי:</p>
+            <video controls>
+                <source src="videos/09movie1.mp4" type="video/mp4">
+                הדפדפן שלך אינו תומך בהצגת וידאו.
+            </video>
+            <div class="image-caption">צפו בסרטון המוגמר שלי, המשלב דמות, תנועה וקול.</div>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <h2>שלבי העבודה ב-ComfyUI</h2>
+            <p>להלן פירוט שלבי העבודה המרכזיים שיצרתי ב-ComfyUI.</p>
+
+            <h3>שלב 1: יצירת דמות הבסיס</h3>
+            <p>השלב הראשון היה לייצר את דמות הבסיס, אותה השתמשתי לאחר מכן בסרטון. התמקדתי ביצירת תמונה איכותית, ריאליסטית ויפה.</p>
+            <img src="images/03character.png" alt="דמות הבסיס">
+            <div class="image-caption">דמות הבסיס שנוצרה ב-ComfyUI.</div>
+
+            <details>
+                <summary>פרטי ה-Workflow ליצירת הדמות</summary>
+                <p>כך נראה ה-Workflow המלא ליצירת דמות הבסיס:</p>
+                <img src="images/01screenWorkflowCharacter.png" alt="Workflow יצירת דמות">
+                <div class="image-caption">צילום מסך של ה-Workflow ליצירת דמות.</div>
+                <p>ה-Workflow כולל טעינת מודל (UnetLoaderGGUF ו-DualCLIPLoaderGGUF), הגדרת פרומפטים חיוביים ושליליים (CLIPTextEncode), הגדרות מידות ותוצאה (FluxResolutionNode, EmptySD3LatentImage, KSampler, VAEDecode, SaveImage). הפרומפט החיובי ששימש אותי ליצירת הדמות היה:</p>
+                <p><span class="highlight">"realistic photograph, closeup, beautiful girl, smiling, blond, long hair, cruls, symmetrical features, closed mouth, clear skin, wearing a tank top, light makeup, elegant, refined, delicate features, soft lighting, natural look, brown eyes, chiseled cheekbones, slight smile, glossy lips, natural hair color, background blurred 4k, highly detailed, high-quality, masterpiece"</span></p>
+            </details>
+
+            <h3>שלב 2: שילוב קול לדמות</h3>
+            <p>בשלב זה, הוספתי יכולת לדמות "לדבר" באמצעות יצירת קול מבוסס טקסט (Text-to-Speech).</p>
+
+            <details>
+                <summary>פרטי ה-Workflow לשילוב קול</summary>
+                <p>כך נראה ה-Workflow ששימש אותי ליצירת הקול והשמעתו:</p>
+                <img src="images/04screenWorkflowVoice.png" alt="Workflow יצירת קול">
+                <div class="image-caption">צילום מסך של ה-Workflow ליצירת קול ב-ComfyUI.</div>
+                <p>השתמשתי ב-Node <span class="highlight">"OpenAIFMNode"</span> על מנת להמיר טקסט לקול. הקול שנוצר הוא: <span class="highlight">"מדריך ל comfyui מאת שלומית"</span>.</p>
+                <p>ניתן לראות את החיבורים ל-Nodes של תצוגה מקדימה ושמירת קובץ הקול בפורמטים MP3 ו-Opus (PreviewAudio, SaveAudioMP3, SaveAudioOpus).</p>
+                <p>כאן ניתן להשמיע את קובץ הקול שיצרתי: <audio controls><source src="sounds/06Voice.mp3" type="audio/mpeg">הדפדפן שלך אינו תומך בהשמעת אודיו.</audio></p>
+            </details>
+
+            <h3>שלב 3: הוספת תנועה וסאונד לסרטון</h3>
+            <p>השלב האחרון היה לחבר את כל המרכיבים יחד – הדמות, הקול והתנועה – ליצירת הסרטון הסופי.</p>
+
+            <details>
+                <summary>פרטי ה-Workflow לשילוב תנועה וסאונד</summary>
+                <p>ה-Workflow הבא מציג את השילוב הסופי של כל הרכיבים:</p>
+                <img src="images/07screenWorkflowSonic.png" alt="Workflow שילוב תנועה וסאונד">
+                <div class="image-caption">צילום מסך של ה-Workflow הסופי לשילוב תנועה וסאונד.</div>
+                <p>ב-Workflow זה ניתן לראות כיצד טענתי את הדמות הראשונית באמצעות <span class="highlight">"LoadImage"</span> (שם הקובץ `הדמות01.png`), שילבתי את קובץ האודיו שיצרתי באמצעות <span class="highlight">"VHS_LoadAudioUpload"</span> (שם הקובץ `הקול01.mp3`), והשתמשתי במודלים מתקדמים כמו <span class="highlight">"SONICTLoader"</span> ו-<span class="highlight">"SONICSampler"</span> כדי להוסיף תנועה ולשלוט בסנכרון בין הקול לתמונה. בנוסף, השתמשתי ב-<span class="highlight">"ImageResize+"</span> כדי להתאים את גודל התמונה. בסוף התהליך, השתמשתי ב-Node <span class="highlight">"VHS_VideoCombine"</span> כדי לחבר הכל לסרטון אחד מוגמר.</p>
+                <p>חשוב לוודא שה-Nodes השונים מקושרים נכון כדי שהסרטון יופק עם התנועה והסאונד הרצויים.</p>
+            </details>
+
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <h2>קבצי Workflow להורדה</h2>
+            <p>כאן תוכלו להוריד את קבצי ה-Workflow (JSON) שהשתמשתי בהם במדריך זה, על מנת שתוכלו לנסות בעצמכם:</p>
+            <ul>
+                <li><a href="workflows/02workflowCharacter.json" download>Workflow יצירת דמות (JSON)</a></li>
+                <li><a href="workflows/05voiceWorkflow.json" download>Workflow יצירת קול (JSON)</a></li>
+                <li><a href="workflows/08workflowSonic.json" download>Workflow שילוב סאונד ותנועה (JSON)</a></li>
+            </ul>
+        </div>
+
+        <footer>
+            נוצר על ידי שלומית | תאריך: יוני 2025
+        </footer>
+    </div>
+</body>
+</html>
